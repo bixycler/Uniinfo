@@ -1,0 +1,34 @@
+.CollapsiblePlaceholder  {
+    display: block;
+}
+.CollapsiblePlaceholder:hover  {
+    background-color: LightGray;
+}
+.CollapsibleContent  {
+    display: none;
+}
+.CollapsibleContent:hover  {
+    background-color: LightGray;
+}
+.HighlightBox {
+    display: block;
+    background-color: Azure;
+    border-style: solid;
+    margin: 1em 1em;
+    padding: 1em 1em;
+    width: fit-content;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: left !important;
+  margin: 1em 0;
+}
+table.TEX_line  mjx-container[jax="SVG"][display="true"],
+.HighlightBox  mjx-container[jax="SVG"][display="true"]
+{
+  margin: 0 0;
+}
+table.TEX_line {
+  margin: 1em 0;
+}
