@@ -27,7 +27,7 @@ mjx-container[jax="SVG"][display="true"] {
 table.TEX_line  mjx-container[jax="SVG"][display="true"],
 .HighlightBox  mjx-container[jax="SVG"][display="true"]
 {
-  margin: 0 0;
+  margin: 10 0;
 }
 table.TEX_line {
   margin: 1em 0;

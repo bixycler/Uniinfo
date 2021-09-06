@@ -1,4 +1,4 @@
-function toggleCollapsible(obj) {
+﻿function toggleCollapsible(obj) {
     //this.classList.toggle("active");
     if(typeof(obj)=='string'){ obj = document.getElementsById(obj); }
     if (getComputedStyle(obj, null).getPropertyValue("display") === "none") {
@@ -24,3 +24,16 @@ function linkPlaceholderCollapsibles(){
         });
     }
 }
+
+function defineMathJaxMacros(){
+  MathJax = {
+    tex: {
+      macros: {
+        'd': ['{\\mathrm{d}}'],
+        'e': ['{\\mathrm{e}}'],
+        'Trinion': ['{\\rlap{\\kern 0.15em\\raise.04em\\scriptsize{ ⇌}}{◯} }']
+      }
+    }
+  }
+}
+

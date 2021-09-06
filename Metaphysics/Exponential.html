@@ -7,19 +7,15 @@
     <link href="../scripts/utilities.css" rel="stylesheet" type="text/css">
     <script src="../scripts/utilities.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script> defineMathJaxMacros(); </script>
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 </HEAD>
 <BODY>
-\( 
-    \def\d{{\mathrm{d}}} 
-    \def\e{{\mathrm{e}}}
-\)
-
 <h1>Exponential</h1>
 <p>
-With identity \( a^{x+y} = a^x a^y \), exponential bridges between addition and multiplication, and with identity \( \d a^x = a^x\d x \), exponential plays an essential role in differential-integral calculus. There are various phenomena related to exponential: <a href="https://en.wikipedia.org/wiki/Power_law" target="_">power law</a>, <a href="https://en.wikipedia.org/wiki/Scale_invariance" target="_">scale invariance</a>, <a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">exponential growth</a>, <a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">exponential decay</a>, etc. Here we start from the normal exponential on real number to see its role as <a href="#EigenvectorDifferential">the eigenvector of differential-integral calculus</a> and derive its definition in the form of limit. Then using that limit-form definition, we show a <a href="#ExponentialMap">deeper meaning</a> of exponential as a mapping from tangent space to the background manifold in general.
+With the identity \( a^{x+y} = a^x a^y \), exponential bridges between addition and multiplication, and with the identity \( \d a^x = a^x\d x \), exponential plays an essential role in differential-integral calculus. There are various phenomena related to exponential: <a href="https://en.wikipedia.org/wiki/Power_law" target="_">power law</a>, <a href="https://en.wikipedia.org/wiki/Scale_invariance" target="_">scale invariance</a>, <a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">exponential growth</a>, <a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">exponential decay</a>, etc. Here we start from the normal exponential on real number to see its role as <a href="#EigenvectorDifferential">the eigenvector of differential-integral calculus</a> and derive its definition in the form of limit. Then using that limit-form definition, we show a <a href="#ExponentialMap">deeper meaning</a> of exponential as a mapping from tangent space to the background manifold in general.
 </p>
 
 <h2 id="EigenvectorDifferential">The eigenvector of differential-integral calculus</h2>
@@ -78,15 +74,21 @@ The expression of \( \e^α \) via limit<br/>
 <table id="Def.1"><tr><td>
 <span class="HighlightBox">\[ \e^α = \exp(α) = \lim_{n\to\infty}{\left(1+\frac{α}{n}\right)^n} \] </span></td>
 <td>(Def.1)</td></tr></table>
-shows a deeper meaning of exponential: For any ring \(A \ni α\) endowed with addition, multiplication and scalar multiplication, we can define a function \( \exp(α) \) satisfying exponential identities using <a href="#Def.1">Def.1</a> (see derivation steps <a href="#ExponentialIdentities">below</a>). Moreover, we should consider \(α\) as a parameters of some <a href="https://en.wikipedia.org/wiki/Operator_(physics)" target="_">operator</a> acting on some background object \(T_α(o) = α*o = o' \). For the simplest case of normal numbers, the "background object" is just the unit number "1" and the operator is the normal multiplication \(α\cdot 1 = α\). In exponential growth/decay, the "background object" is the initial value \(x_0\) so that the value at time \(t\) is \(x_t = x_0 e^{λt}\). And in physics, \(α\) is usually a matrix, a complex number, a quaternion, etc. In this sense, we can divide the operator \(T_α\) into \(n\) differentials \(T_{\d α} = (α/n)*\) and then "integrate" them up.
+shows a deeper meaning of exponential: For any ring \(A \ni α\) endowed with addition, multiplication and scalar multiplication, we can define a function \( \exp(α) \) satisfying exponential identities using <a href="#Def.1">Def.1</a> (see derivation steps <a href="#ExponentialIdentities">below</a>). Moreover, we should consider \(α\) and \(\e^α\) as parameters of some <a href="https://en.wikipedia.org/wiki/Operator_(physics)" target="_">operators</a> acting on some background object \(T_α(o) = α*o = o_t \) and \(X_α(o) = (\e^α)*o = o' \), just like the <a href="https://en.wikipedia.org/wiki/Functional_programming" target="_">functions in programming</a>, so \(A\) is a <a href="https://en.wikipedia.org/wiki/Von_Neumann_algebra" target="_">ring of operators</a>. For the simplest case, the "background object" is just the normal number and the operator is the normal multiplication \(α*x = α\cdot x\). In exponential growth/decay, while \(T_α\) acts on intermediate values \(T_α(x_t) = α\cdot x_t\), \(X_α\) acts on the initial value \(x_0\) so that the value at time \(t\) is \(x_t = X_α(x_0) =  (e^{α_0 t})\cdot x_0\). And in physics, \(α\) is usually a matrix, a complex number, a quaternion, etc. In this sense, using the propery of scalar multiplication, we take derivative with respect to that scalar \(\frac{\partial α}{\partial t} = α_0\) \(\Rightarrow α = α_0 t\), so that we can divide the operator \(T_α\) into \(n\) differentials \(T_{\d α} = (α_0 t/n)*\), where \(\d α := α_0\d t = α_0 t/n = α/n\), and then "integrate" them up to get \(X_α = e^α\).
 </p>
 <a href="https://www.geogebra.org/m/kmpr2jx2" title="View in 3D applet" target="_"><img src="img/ExponentialMap-tangent-displacement.PNG" width=300></a>
 <p>
-To be general, we consider a background object on a manifold \(o\in M\) and the operator \(T_α\) as a <a href="https://en.wikipedia.org/wiki/Tangent_vector" target="_">tangent operator</a> of that manifold, i.e. \( \forall o\in M, o + T_{\dα}(o)\in M \). Applying the differential \(T_{\d α}\) to the whole manifold, we have a <a href="https://en.wikipedia.org/wiki/Vector_field#Vector_fields_on_manifolds" target="_">vector field</a> on \(M\). Then the displacement operator \(X_α(o) = o'\in M\) <a href="https://en.wikipedia.org/wiki/Operator_(physics)#Generators" target="_">generated</a> by that vector field, tracing a <a href="https://en.wikipedia.org/wiki/Geodesic" target="_">geodesic</a> \( [o,o'] \subset M\), is expressed as the exponential \(\e^α\). That's because the infinitesimal displacement is \( X_{\dα}(o) = o + T_{\dα}(o) = (1+\dα)*o \), and the whole displacement is the composition of infinitely many infinitesimal displacements \( X_α = X_{\dα}\circ X_{\dα}\circ X_{\dα}\cdots = (1+\dα)\cdot(1+\dα)\cdot(1+\dα)\cdots = e^α \). 
+To be general, we consider a background object in a manifold \(o\in M\) and the operator \(T_α\) as a <a href="https://en.wikipedia.org/wiki/Tangent_vector#Tangent_vector_on_manifolds" target="_">tangent operator</a> of that manifold, i.e. \( \forall o\in M, o + T_{\dα}(o)\in M \). Applying the differential \(T_{\d α}\) to the whole manifold, we have a <a href="https://en.wikipedia.org/wiki/Vector_field#Vector_fields_on_manifolds" target="_">vector field</a> on \(M\). Then the displacement operator \(X_α(o) = o'\in M\) <a href="https://en.wikipedia.org/wiki/Operator_(physics)#Generators" target="_">generated</a> by that vector field, tracing a <a href="https://en.wikipedia.org/wiki/Geodesic" target="_">geodesic</a> \( [o,o'] \subset M\), is expressed as the exponential \(\e^α\). That's because the infinitesimal displacement is \( X_{\dα}(o) = o + T_{\dα}(o) = (1+α_0\d t)*o \), and the whole displacement is the composition of infinitely many infinitesimal displacements \( X_α = X_{\dα}\circ X_{\dα}\circ X_{\dα}\cdots \) \(= (1+α_0\d t)\cdot(1+α_0\d t)\cdot(1+α_0\d t)\cdots \) \(= e^{α_0 t} = e^α \). 
 </p>
 <div id="ggb_TangentAndMicrodisplacement"><a href="https://www.geogebra.org/m/tham8zkb" target="_">GeoGebra applet TangentAndMicrodisplacement</a></div>
 <p>
-In this sense, the exponential is the fundamental building block of differential-integral calculus which is called "exponential map" (in <a href="https://en.wikipedia.org/wiki/Exponential_map_(Lie_theory)" target="_">Lie theory</a> as well as in <a href="https://en.wikipedia.org/wiki/Exponential_map_(Riemannian_geometry)" target="_">Riemannian geometry</a>). Note that <a href="https://en.wikipedia.org/wiki/Exponential_map_(discrete_dynamical_systems)" target="_">exponential map in dynamical systems</a> is just a mapping from complex plane to itself, which is somehow relevant but different from the exponential map here. In physics, the manifold \(M\) is considered as (phase) space and \(α\) is parameterized by time \(α = α_0\cdot t\), as shown in <a href="https://youtu.be/O85OWBJ2ayo" target="_">this video clip</a>, and the operators can act on the whole space just like <a href="https://youtu.be/JYlAPaPsoSY" target="_">this visualization of Mandelbrot set</a>.
+In this sense, the exponential is the fundamental building block of differential-integral calculus which is called "exponential map" (in <a href="https://en.wikipedia.org/wiki/Exponential_map_(Lie_theory)" target="_">Lie theory</a> as well as in <a href="https://en.wikipedia.org/wiki/Exponential_map_(Riemannian_geometry)" target="_">Riemannian geometry</a>). In essence, any continuous operator mapping objects from one domain into the same domain, i.e. any <a href="https://en.wikipedia.org/wiki/Flow_(mathematics)" target="_">flow</a> \(X_α\) on \(M\), given its <a href="https://en.wikipedia.org/wiki/Differential_operator" target="_">differential operator</a>  \(\frac{\partial}{\partial t} = T_{α_0} = α_0*\), can be expressed as an exponential operator \((e^{α_0 t})*\) on \(M\). <br/>
+<table id="Id.Flow"><tr><td>
+<span class="HighlightBox">\[ \forall M, \forall X_α:M\rightarrow M, F(t) := X_{α_0,M}(t) = X_α(M),\]
+\[ \frac{\d F(t)}{\d t} = α_0*F(t)  
+\Rightarrow F(t) = (\e^{α_0 t})*F(0) = (\e^{α_0 t})*M  \] </span></td>
+<td>(Id.Flow)</td></tr></table>
+Here, instead of acting on individual objects in the manifold, the operators \( α_0*\) and \( (\e^{α_0 t})*\) act on the whole manifold so that the result \(F(t)\) has only one variable \(t\), and the differential operator is total \(\frac{\d}{\d t}\) instead of partial \(\frac{\partial}{\partial t}\), as shown in these vizualizations for <a href="http://www.malinc.se/m/Lorenz.php" target="_">Lorenz attractor</a>, <a href="https://youtu.be/JYlAPaPsoSY" target="_">Mandelbrot set</a>. In physics, the manifold \(M\) is considered as (phase) space and the differential operator \(\frac{\partial}{\partial t} = T_{α_0}\) is usually considered as <a href="https://en.wikipedia.org/wiki/Time_derivative" target="_">time derivative</a> operator, as shown in <a href="https://youtu.be/O85OWBJ2ayo" target="_">this video clip</a>. However in general, the differential operator can be with respect to any spatial coordinate or any other scalar variable.  Note that <a href="https://en.wikipedia.org/wiki/Exponential_map_(discrete_dynamical_systems)" target="_">exponential map in dynamical systems</a> is just a mapping from complex plane to itself, which is somehow relevant but different from the exponential map here.
 </p>
 <h3 id="ExponentialIdentities">Identities</h3>
 <p>
@@ -95,17 +97,19 @@ Here we derive the identities of exponential directly from the limit definition 
 <ul>
 <li>\( e^{0} = 1 \): When \(α=0\), there is no displacement, thus \(e^{0} = X_0\) is an <a href="https://en.wikipedia.org/wiki/Identity_function" target="_">identity operator</a> \(X_0(o) = o\). 
 </li>
-<li>\( e^{α+β} = e^α\cdot e^β \): The displacement of a sum \(α+β\) is the composition of component displacements \( e^{α+β} = X_{α+β} = X_{α}\circ X_{β} = e^{α}\cdot e^{β} \), just like the parallelogram rule of vector addition (but may not be commutative).
+<li>\( e^{α+β} = e^β\cdot e^α \): The displacement of a sum \(α+β\) is the composition of component displacements \( e^{α+β} = X_{α+β} = X_{β}\circ X_{α} = e^{β}\cdot e^{α} \), just like the parallelogram rule of vector addition (but may not be commutative).<br/>
 <a href="https://www.geogebra.org/m/yvv8fvqg" title="View in 3D applet" target="_"><img src="img/ExponentialMap-tangent-displacement-addition.PNG" width=300></a>
 </li>
-<li>\( e^{αt} = (e^α)^t \): The displacement of a parameter \(α\) scaled by a number \(t\) is \(X_α\) raised to the power of \(t\) in the sense of "\(t\) times" (more/less) infinitesimal displacements.
-\[ e^{αt} = \lim_{n\to\infty}\left(1+\frac{αt}{n}\right)^n = \lim_{n\to\infty}\left(1+\frac{α}{n/t}\right)^{(n/t)t} = \left(\lim_{n'\to\infty}\left(1+\frac{α}{n'}\right)^{n'}\right)^t 
-= (e^{α})^t \]
+<li>\( e^{αs} = (e^α)^s \): The displacement of a parameter \(α\) scaled by a real number \(s\) is \(X_α\) raised to the power of \(s\) in the sense of "\(s\) times" (more/less) infinitesimal displacements.
+\[ e^{αs} = \lim_{n\to\infty}\left(1+\frac{αs}{n}\right)^n = \lim_{n\to\infty}\left(1+\frac{α}{n/s}\right)^{(n/s)s} = \left(\lim_{n'\to\infty}\left(1+\frac{α}{n'}\right)^{n'}\right)^s 
+= (e^{α})^s \]
 </li>
-<li>\( \d(e^{α}) = e^α\cdot \dα \): Using the differential identity of composition \(\d(X_α\cdot X_β) = X_α\cdot\d X_β + X_β\cdot\d X_α\), we have  
-\[ \d(e^{α}) = \lim_{n\to\infty}\d\left(1+\frac{α}{n}\right)^n = \lim_{n\to\infty}\left(\left(1+\frac{α}{n}\right)^{n-1}\cdot n\d\frac{α}{n}\right) = \left(\lim_{n\to\infty}\left(1+\frac{α}{n}\right)^{n\frac{n-1}{n}}\right)\cdot\d α
-= e^α\cdot \dα \]
-When \(α\) is parameterized by time \(α = α_0\cdot t\) and the tangent \(T_{α_0} = α_0\) is a constant, we have the derivative of displacement \(X_α\) as the composition of the displacement itself with its tangent \(\frac{\d(X_α)}{\d t} = X_α\cdot T_{α_0}\). This property is usually used to solve differential equations, as shown in <a href="https://youtu.be/O85OWBJ2ayo" target="_">this video clip</a>.
+<li>\( \d(e^{α}) = e^α\cdot \dα \): We deduce this from the limit definition, which is the converse of the induction in <a href="#Id.Flow">Id.Flow</a>. From \(α = α_0 t\) and <a href="#Def.1">Def.1</a>, we have  
+\[ \frac{\d(e^{α})}{\d t} = \lim_{n\to\infty}\frac{\d}{\d t}\left(1+\frac{α_0 t}{n}\right)^n 
+= \lim_{n\to\infty}\left(\left(1+\frac{α}{n}\right)^{n-1}\cdot n\frac{α_0}{n}\right) \]
+\[= α_0 \lim_{n\to\infty}\left(1+\frac{α}{n}\right)^{n\frac{n-1}{n}}
+= α_0 e^α \]
+\[ \Rightarrow \d(e^{α}) = e^α\cdot α_0\d t = e^α\cdot \dα \]
 </li>
 </ul>
 <h3>Taylor series</h3>
@@ -125,7 +129,7 @@ We can also <a href="https://en.wikipedia.org/wiki/Binomial_theorem" target="_">
 <script>
     linkPlaceholderCollapsibles();
 
-    var params = {"id":"ggb_TangentAndMicrodisplacement","material_id":"tham8zkb", "width": 800, "height": 400, "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false };
+    var params = {"id":"ggb_TangentAndMicrodisplacement","material_id":"tham8zkb", "width": 600, "height": 350, "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false };
     var ggb_TangentAndMicrodisplacement = new GGBApplet(params, true);
     window.addEventListener("load", function() { 
         ggb_TangentAndMicrodisplacement.inject('ggb_TangentAndMicrodisplacement');
