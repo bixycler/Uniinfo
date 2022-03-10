@@ -29,9 +29,12 @@ function defineMathJaxMacros(){
   MathJax = {
     tex: {
       macros: {
-        'd': ['{\\mathrm{d}}'],
-        'e': ['{\\mathrm{e}}'],
-        'Trinion': ['{\\rlap{\\kern 0.15em\\raise.04em\\scriptsize{ ⇌}}{◯} }']
+        'd': ['{\\mathrm{d}}'], // Leibniz's notation of differential
+        'D': ['{\\mathrm{D}}'], // Euler's notation of differential operator
+        'e': ['{\\mathrm{e}}'], // Euler's number, the base of the natural logarithm 
+        'Trinion': ['{ \\rlap{\\kern 0.15em\\raise.04em\\scriptsize{⇌}} {◯} }'],
+        'interunion': ['{⋇}'], // the interunion operator, Unicode: division times
+        'uninet': ['{ᔕ}'], // inverse of Euler's open infinity symbol, Unicode: Canadian Aboriginal syllabic "sha"
       }
     }
   }
