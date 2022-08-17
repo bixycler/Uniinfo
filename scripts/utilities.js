@@ -13,15 +13,15 @@ function linkPlaceholderCollapsibles(){
     let i;
     for (i = 0; i < colls.length; i++) {
         let placeholder = colls[i].getElementsByClassName("CollapsiblePlaceholder")[0];
-        let content = colls[i].getElementsByClassName("CollapsibleContent")[0];
-        placeholder.addEventListener("click", function() {
-            toggleCollapsible(content);
-            toggleCollapsible(placeholder);
-        });
-        content.addEventListener("click", function() {
-            toggleCollapsible(placeholder);
-            toggleCollapsible(content);
-        });
+        let content0 = colls[i].getElementsByClassName("CollapsibleContent")[0];
+        let contents = colls[i].getElementsByClassName("CollapsibleContentExtra");
+        function toggleAll() {
+          toggleCollapsible(placeholder);
+          toggleCollapsible(content0);
+          for(let content of contents){ toggleCollapsible(content); }
+        }
+        content0.addEventListener("click", toggleAll);
+        placeholder.addEventListener("click", toggleAll);
     }
 }
 

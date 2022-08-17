@@ -4,7 +4,7 @@
 .CollapsiblePlaceholder:hover  {
     background-color: LightGray;
 }
-.CollapsibleContent  {
+.CollapsibleContent,.CollapsibleContentExtra {
     display: none;
 }
 .CollapsibleContent:hover  {
