@@ -1,5 +1,5 @@
 .CollapsiblePlaceholder  {
-    display: block;
+    display: initial;
 }
 .CollapsiblePlaceholder:hover  {
     background-color: LightGray;

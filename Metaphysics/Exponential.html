@@ -15,19 +15,45 @@
 <BODY>
 <h1>Exponential</h1>
 <p>
-With the identity \( a^{x+y} = a^x a^y \), exponential bridges between addition and multiplication, and with the identity \( \d a^x = a^x\d x \), exponential plays an essential role in differential-integral calculus. There are various phenomena related to exponential: <a href="https://en.wikipedia.org/wiki/Power_law" target="_">power law</a>, <a href="https://en.wikipedia.org/wiki/Scale_invariance" target="_">scale invariance</a>, <a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">exponential growth</a>, <a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">exponential decay</a>, etc. Here we start from the normal exponential on real number to see its role as <a href="#EigenvectorDifferential">the eigenvector of differential-integral calculus</a> and derive its definition in the form of limit. Then using that limit-form definition, we show a <a href="#ExponentialMap">deeper meaning</a> of exponential as a mapping from tangent space to the background manifold in general.
+With the identity \( a^{x+y} = a^x a^y \), exponential bridges between addition and multiplication, and with the identity \( \d a^x = a^x\d x \cdot \ln(a) \), exponential plays an essential role in differential-integral calculus. There are various phenomena related to exponential: <a href="https://en.wikipedia.org/wiki/Power_law" target="_">power law</a>, <a href="https://en.wikipedia.org/wiki/Scale_invariance" target="_">scale invariance</a>, <a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">exponential growth</a>, <a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">exponential decay</a>, etc. Here we start from the normal exponential on real number to see its role as <a href="#EigenvectorDifferential">the eigenvector of differential-integral calculus</a> and derive its definition in the form of limit. Then using that limit-form definition, we show a <a href="#ExponentialMap">deeper meaning</a> of exponential as a mapping from tangent space to the background manifold in general.
 </p>
 
 <h2 id="EigenvectorDifferential">The eigenvector of differential-integral calculus</h2>
 <p>
-For exponential function \( f(x) = a^x \) with identity \( f(x+y) = a^{x+y} = a^x a^y \), we have its derivative<br/>
+For exponential function \( f(x) = a^x \) with the identity \( f(x+y) = a^{x+y} = a^x a^y \), we have its derivative<br/>
     \[ 
     f'(x) = \frac{\d(a^x)}{\d x} = \lim_{ε\to 0}{\frac{a^{x+ε}-a^{x}}{ε}} 
     = \lim_{ε\to 0}{\frac{a^{x}a^{ε}-a^{x}}{ε}} 
     \]
-    \[ = a^{x}\cdot \left(\lim_{ε\to 0}{\frac {a^{ε}-1}{ε}}\right) \]
+    \[ = a^{x}\cdot \left(\lim_{ε\to 0}{\frac {a^{ε}-1}{ε}}\right) = a^{x}\cdot \left(\lim_{ε\to 0}{\frac {a^{0+ε}-a^0}{ε}}\right) = a^{x}\cdot \left(\frac{\d(a^x)}{\d x}\Bigr|_{\substack{x=0}}\right) \]
     \[ = f(x)\cdot f'(0) \]
-where \( f'(0) \) is a constant only depending on the base <i>a</i>. That means the derivative of exponential function is the exponential function itself scaled by a constant, i.e. exponential is the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" target="_">eigenvector</a> of differential-integral calculus. The scaling constant is the eigenvalue of that eigenvector and is called "rate constant" \( λ = f'(x)/f(x) = f'(0) \), which is the "<a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">growth constant</a>" when positive, and the "<a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">decay constant</a>" when negative. The natural exponential \( \exp(x) = \e^x \) is defined to have unit rate constant \( \exp'(0) = 1 \), so that it's the <i><b>unit eigenvector</b> of differential-integral calculus</i>.<br/>
+where \( f'(0) \) is a constant only depending on the base <i>a</i>. That means the derivative of exponential function is the exponential function itself scaled by a constant, i.e. exponential is the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" target="_">eigenvector</a> of differential-integral calculus. The scaling constant is the eigenvalue of that eigenvector and is called "rate constant" \( λ = f'(x)/f(x) = f'(0) \), which is the "<a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">growth constant</a>" when positive, and the "<a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">decay constant</a>" when negative. 
+</p><p>
+The <b>natural exponential</b> \( \exp(x) = \e^x \) is defined to have <i>unit rate constant</i> \( \exp'(0) = 1 \), so that it's the <i><b>unit eigenvector</b> of differential-integral calculus</i>, i.e. \( \exp'(x) = \exp(x) \). Its inverse function, natural logarithm \( \ln(x) := \exp^{-1}(x) \), gives meaning to the <i><b>rate constant</b> as the natural logarithm of the base a</i>, i.e. \( λ = f'(0) = \ln(a) \), as shown in the following: From the definition of inverse function, we have \( a = \e^{\ln(a)} \), combined with the exponential identity \( (\e^α)^x = \e^{α\cdot x} \), we have the identity \( a^x = \e^{x\cdot \ln(a)} \) to convert arbitrary base-<i>a</i> exponential \( f(x) = a^x \) to natural exponential \( f(x) = \exp(x\cdot \ln(a)) \). With \( y := x\cdot \ln(a) \), we have \( f(x) = \exp(y) \) and 
+<br><br>
+  \( f'(x) = \)
+  <span class="PlaceholderCollapsible">
+    <span class="CollapsiblePlaceholder">&nbsp;...&nbsp;</span>
+    <span class="CollapsibleContent">
+      \[ \frac{\d(\exp(y))}{\d x}
+      = \frac{\d(\exp(y))}{\d(x\cdot \ln(a))} \cdot \ln(a)
+      = \frac{\d(\exp(y))}{\d(y)} \cdot \ln(a) \]
+    </span>
+  </span>
+  \( = \exp'(y) \cdot \ln(a) = \exp(y) \cdot \ln(a) = f(x) \cdot \ln(a) \)
+<br><br>
+compared to the previous result \( f'(x) = f(x)\cdot f'(0) \), we have \( f'(0) = \ln(a) \). That gives us the differential identity:
+
+<table id="Id.Eigen"><tr><td>
+  <span class="HighlightBox">\[ \d(a^x) = a^x\d x \cdot \ln(a) \] 
+    \[ \d(\e^x) = \e^x\d x \]
+  </span></td>
+  <td>(Id.Eigen)</td></tr>
+</table>
+</p>
+  
+<h2 id="EigenvectorDifferential">The limit of scaling operations</h2>
+<p>
     \[
     \lim_{ε\to 0}{\frac {\e^{ε}-1}{ε}} = 1 
     \Leftrightarrow \lim_{ε\to 0}{\left(\frac {\e^{ε}-1}{ε} - 1\right)} = 0 
@@ -49,18 +75,7 @@ where \( f'(0) \) is a constant only depending on the base <i>a</i>. That means 
 </p>
 <p>
 With this definition of the constant <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)#In_calculus" target="_">e (Euler's number)</a>, we have <br/>
-    <table class="TEX_line"><tr>
-    <td>\[ f'(x) = \frac{\d(a^x)}{\d x} = \] </td>
-    <td class="PlaceholderCollapsible"><span class="CollapsiblePlaceholder">&nbsp;...&nbsp;</span>
-    <span class="CollapsibleContent">
-    \[ \frac{\d(\e^{x\cdot \ln(a)})}{\d x} 
-    = \ln(a) \cdot \frac{\d(\e^{x\cdot \ln(a)})}{\d(x\cdot \ln(a))} 
-    = \ln(a) \cdot \e^{x\cdot \ln(a)} \] 
-    </span></td>
-    <td>\[ = \ln(a) \cdot a^x = f(x) \cdot \ln(a) 
-    \] </td>
-    </tr></table>
-    \[ \Leftrightarrow f'(0) = \ln(a) = \lim_{ε\to 0}{\frac {a^{ε}-1}{ε}} \]
+    \[ f'(0) = \ln(a) = \lim_{ε\to 0}{\frac {a^{ε}-1}{ε}} \]
     \[ \Leftrightarrow \lim_{n\to\infty}{n\cdot( a^{1/n} - (1+\ln(a)/n))} = 0 \]
     ... (similar to the above)
     \[ \Leftarrow a = \lim_{n\to\infty}{\left(1+\frac{\ln(a)}{n}\right)^n} 
