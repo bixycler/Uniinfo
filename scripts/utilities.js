@@ -2,7 +2,7 @@
     //this.classList.toggle("active");
     if(typeof(obj)=='string'){ obj = document.getElementsById(obj); }
     if (getComputedStyle(obj, null).getPropertyValue("display") === "none") {
-        obj.style.display = "initial";
+        obj.style.display = "revert";
     } else {
         obj.style.display = "none";
     }
