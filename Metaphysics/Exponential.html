@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="../scripts/utilities.css" rel="stylesheet" type="text/css">
     <script src="../scripts/utilities.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script> defineMathJaxMacros(); </script>
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
@@ -21,15 +20,15 @@ With the identity \( a^{x+y} = a^x a^y \), exponential bridges between addition 
 <h2 id="EigenvectorDifferential">The eigenvector of differential-integral calculus</h2>
 <p>
 For exponential function \( f(x) = a^x \) with the identity \( f(x+y) = a^{x+y} = a^x a^y \), we have its derivative<br/>
-    \[ 
-    f'(x) = \frac{\d(a^x)}{\d x} = \lim_{ε\to 0}{\frac{a^{x+ε}-a^{x}}{ε}} 
-    = \lim_{ε\to 0}{\frac{a^{x}a^{ε}-a^{x}}{ε}} 
+    \[
+    f'(x) = \frac{\d(a^x)}{\d x} = \lim_{ε\to 0}{\frac{a^{x+ε}-a^{x}}{ε}}
+    = \lim_{ε\to 0}{\frac{a^{x}a^{ε}-a^{x}}{ε}}
     \]
     \[ = a^{x}\cdot \left(\lim_{ε\to 0}{\frac {a^{ε}-1}{ε}}\right) = a^{x}\cdot \left(\lim_{ε\to 0}{\frac {a^{0+ε}-a^0}{ε}}\right) = a^{x}\cdot \left(\frac{\d(a^x)}{\d x}\Bigr|_{\substack{x=0}}\right) \]
     \[ = f(x)\cdot f'(0) \]
-where \( f'(0) \) is a constant only depending on the base <i>a</i>. That means the derivative of exponential function is the exponential function itself scaled by a constant, i.e. exponential is the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" target="_">eigenvector</a> of differential-integral calculus. The scaling constant is the eigenvalue of that eigenvector and is called "rate constant" \( λ = f'(x)/f(x) = f'(0) \), which is the "<a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">growth constant</a>" when positive, and the "<a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">decay constant</a>" when negative. 
+where \( f'(0) \) is a constant only depending on the base <i>a</i>. That means the derivative of exponential function is the exponential function itself scaled by a constant, i.e. exponential is the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" target="_">eigenvector</a> of differential-integral calculus. The scaling constant is the eigenvalue of that eigenvector and is called "rate constant" \( λ = f'(x)/f(x) = f'(0) \), which is the "<a href="https://en.wikipedia.org/wiki/Exponential_growth" target="_">growth constant</a>" when positive, and the "<a href="https://en.wikipedia.org/wiki/Exponential_decay" target="_">decay constant</a>" when negative.
 </p><p>
-The <b>natural exponential</b> \( \exp(x) = \e^x \) is defined to have <i>unit rate constant</i> \( \exp'(0) = 1 \), so that it's the <i><b>unit eigenvector</b> of differential-integral calculus</i>, i.e. \( \exp'(x) = \exp(x) \). Its inverse function, natural logarithm \( \ln(x) := \exp^{-1}(x) \), gives meaning to the <i><b>rate constant</b> as the natural logarithm of the base a</i>, i.e. \( λ = f'(0) = \ln(a) \), as shown in the following: From the definition of inverse function, we have \( a = \e^{\ln(a)} \), combined with the exponential identity \( (\e^α)^x = \e^{α\cdot x} \), we have the identity \( a^x = \e^{x\cdot \ln(a)} \) to convert arbitrary base-<i>a</i> exponential \( f(x) = a^x \) to natural exponential \( f(x) = \exp(x\cdot \ln(a)) \). With \( y := x\cdot \ln(a) \), we have \( f(x) = \exp(y) \) and 
+The <b>natural exponential</b> \( \exp(x) = \e^x \) is defined to have <i>unit rate constant</i> \( \exp'(0) = 1 \), so that it's the <i><b>unit eigenvector</b> of differential-integral calculus</i>, i.e. \( \exp'(x) = \exp(x) \). Its inverse function, natural logarithm \( \ln(x) := \exp^{-1}(x) \), gives meaning to the <i><b>rate constant</b> as the natural logarithm of the base a</i>, i.e. \( λ = f'(0) = \ln(a) \), as shown in the following: From the definition of inverse function, we have \( a = \e^{\ln(a)} \), combined with the exponential identity \( (\e^α)^x = \e^{α\cdot x} \), we have the identity \( a^x = \e^{x\cdot \ln(a)} \) to convert arbitrary base-<i>a</i> exponential \( f(x) = a^x \) to natural exponential \( f(x) = \exp(x\cdot \ln(a)) \). With \( y := x\cdot \ln(a) \), we have \( f(x) = \exp(y) \) and
 <br><br>
   \( f'(x) = \)
   <span class="PlaceholderCollapsible">
@@ -45,29 +44,29 @@ The <b>natural exponential</b> \( \exp(x) = \e^x \) is defined to have <i>unit r
 compared to the previous result \( f'(x) = f(x)\cdot f'(0) \), we have \( f'(0) = \ln(a) \). That gives us the differential identity:
 
 <table id="Id.Eigen"><tr><td>
-  <span class="HighlightBox">\[ \d(a^x) = a^x\d x \cdot \ln(a) \] 
+  <span class="HighlightBox">\[ \d(a^x) = a^x\d x \cdot \ln(a) \]
     \[ \d(\e^x) = \e^x\d x \]
   </span></td>
   <td>(Id.Eigen)</td></tr>
 </table>
 </p>
-  
+
 <h2 id="EigenvectorDifferential">The limit of scaling operations</h2>
 <p>
     \[
-    \lim_{ε\to 0}{\frac {\e^{ε}-1}{ε}} = 1 
-    \Leftrightarrow \lim_{ε\to 0}{\left(\frac {\e^{ε}-1}{ε} - 1\right)} = 0 
+    \lim_{ε\to 0}{\frac {\e^{ε}-1}{ε}} = 1
+    \Leftrightarrow \lim_{ε\to 0}{\left(\frac {\e^{ε}-1}{ε} - 1\right)} = 0
     \Leftrightarrow \lim_{n\to\infty}{n\cdot( \e^{1/n} - (1+1/n))} = 0
     \]
     <span class="PlaceholderCollapsible"><span class="CollapsiblePlaceholder">...</span>
     <span class="CollapsibleContent">
-    \[ 
+    \[
     \Leftrightarrow \lim_{n\to\infty}{\frac{n}
-    {\sum_{k=0}^{n-1} \left(\e^{\frac{n-1-k}{n}} (1+\frac{1}{n})^k \right)} 
+    {\sum_{k=0}^{n-1} \left(\e^{\frac{n-1-k}{n}} (1+\frac{1}{n})^k \right)}
     \cdot\left(\e - (1+\frac{1}{n})^n \right)} = 0
     \]
     <table class="TEX_line">
-    <td>\[ \Leftarrow \lim_{n\to\infty}{\left(\e - (1+\frac{1}{n})^n \right)} = 0 \] </td> 
+    <td>\[ \Leftarrow \lim_{n\to\infty}{\left(\e - (1+\frac{1}{n})^n \right)} = 0 \] </td>
     <td>&nbsp;&nbsp;&nbsp;, because &nbsp;&nbsp;</td>
     <td> \[ n < \sum_{k=0}^{n-1} \left(\e^{\frac{n-1-k}{n}} (1+\frac{1}{n})^k \right) \] </td></table>
     </span></span>
@@ -78,9 +77,9 @@ With this definition of the constant <a href="https://en.wikipedia.org/wiki/E_(m
     \[ f'(0) = \ln(a) = \lim_{ε\to 0}{\frac {a^{ε}-1}{ε}} \]
     \[ \Leftrightarrow \lim_{n\to\infty}{n\cdot( a^{1/n} - (1+\ln(a)/n))} = 0 \]
     ... (similar to the above)
-    \[ \Leftarrow a = \lim_{n\to\infty}{\left(1+\frac{\ln(a)}{n}\right)^n} 
-    = \e^α = \lim_{n\to\infty}{\left(1+\frac{α}{n}\right)^n} 
-    \]    
+    \[ \Leftarrow a = \lim_{n\to\infty}{\left(1+\frac{\ln(a)}{n}\right)^n}
+    = \e^α = \lim_{n\to\infty}{\left(1+\frac{α}{n}\right)^n}
+    \]
 </p>
 
 <h2 id="ExponentialMap">Exponential map</h2>
@@ -93,14 +92,14 @@ shows a deeper meaning of exponential: For any ring \(A \ni α\) endowed with ad
 </p>
 <a href="https://www.geogebra.org/m/kmpr2jx2" title="View in 3D applet" target="_"><img src="img/ExponentialMap-tangent-displacement.PNG" width=300></a>
 <p>
-To be general, we consider a background object in a manifold \(o\in M\) and the operator \(T_α\) as a <a href="https://en.wikipedia.org/wiki/Tangent_vector#Tangent_vector_on_manifolds" target="_">tangent operator</a> of that manifold, i.e. \( \forall o\in M, o + T_{\dα}(o)\in M \). Applying the differential \(T_{\d α}\) to the whole manifold, we have a <a href="https://en.wikipedia.org/wiki/Vector_field#Vector_fields_on_manifolds" target="_">vector field</a> on \(M\). Then the displacement operator \(X_α(o) = o'\in M\) <a href="https://en.wikipedia.org/wiki/Operator_(physics)#Generators" target="_">generated</a> by that vector field, tracing a <a href="https://en.wikipedia.org/wiki/Geodesic" target="_">geodesic</a> \( [o,o'] \subset M\), is expressed as the exponential \(\e^α\). That's because the infinitesimal displacement is \( X_{\dα}(o) = o + T_{\dα}(o) = (1+α_0\d t)*o \), and the whole displacement is the composition of infinitely many infinitesimal displacements \( X_α = X_{\dα}\circ X_{\dα}\circ X_{\dα}\cdots \) \(= (1+α_0\d t)\cdot(1+α_0\d t)\cdot(1+α_0\d t)\cdots \) \(= \e^{α_0 t} = \e^α \). 
+To be general, we consider a background object in a manifold \(o\in M\) and the operator \(T_α\) as a <a href="https://en.wikipedia.org/wiki/Tangent_vector#Tangent_vector_on_manifolds" target="_">tangent operator</a> of that manifold, i.e. \( \forall o\in M, o + T_{\dα}(o)\in M \). Applying the differential \(T_{\d α}\) to the whole manifold, we have a <a href="https://en.wikipedia.org/wiki/Vector_field#Vector_fields_on_manifolds" target="_">vector field</a> on \(M\). Then the displacement operator \(X_α(o) = o'\in M\) <a href="https://en.wikipedia.org/wiki/Operator_(physics)#Generators" target="_">generated</a> by that vector field, tracing a <a href="https://en.wikipedia.org/wiki/Geodesic" target="_">geodesic</a> \( [o,o'] \subset M\), is expressed as the exponential \(\e^α\). That's because the infinitesimal displacement is \( X_{\dα}(o) = o + T_{\dα}(o) = (1+α_0\d t)*o \), and the whole displacement is the composition of infinitely many infinitesimal displacements \( X_α = X_{\dα}\circ X_{\dα}\circ X_{\dα}\cdots \) \(= (1+α_0\d t)\cdot(1+α_0\d t)\cdot(1+α_0\d t)\cdots \) \(= \e^{α_0 t} = \e^α \).
 </p>
 <div id="ggb_TangentAndMicrodisplacement"><a href="https://www.geogebra.org/m/tham8zkb" target="_">GeoGebra applet TangentAndMicrodisplacement</a></div>
 <p>
 In this sense, the exponential is the fundamental building block of differential-integral calculus which is called "exponential map" (in <a href="https://en.wikipedia.org/wiki/Exponential_map_(Lie_theory)" target="_">Lie theory</a> as well as in <a href="https://en.wikipedia.org/wiki/Exponential_map_(Riemannian_geometry)" target="_">Riemannian geometry</a>). In essence, any continuous operator mapping objects from one domain into the same domain, i.e. any <a href="https://en.wikipedia.org/wiki/Flow_(mathematics)" target="_">flow</a> \(X_α\) on \(M\), given its <a href="https://en.wikipedia.org/wiki/Differential_operator" target="_">differential operator</a>  \(\frac{\partial}{\partial t} = T_{α_0} = α_0*\), can be expressed as an exponential operator \((\e^{α_0 t})*\) on \(M\). <br/>
 <table id="Id.Flow"><tr><td>
 <span class="HighlightBox">\[ \forall M, \forall X_α:M\rightarrow M, F(t) := X_{α_0,M}(t) = X_α(M),\]
-\[ \frac{\d F(t)}{\d t} = α_0*F(t)  
+\[ \frac{\d F(t)}{\d t} = α_0*F(t)
 \Rightarrow F(t) = (\e^{α_0 t})*F(0) = (\e^{α_0 t})*M  \] </span></td>
 <td>(Id.Flow)</td></tr></table>
 Here, instead of acting on individual objects in the manifold, the operators \( α_0*\) and \( (\e^{α_0 t})*\) act on the whole manifold so that the result \(F(t)\) has only one variable \(t\), and the differential operator is total \(\frac{\d}{\d t}\) instead of partial \(\frac{\partial}{\partial t}\), as shown in these vizualizations for <a href="http://www.malinc.se/m/Lorenz.php" target="_">Lorenz attractor</a>, <a href="https://youtu.be/JYlAPaPsoSY" target="_">Mandelbrot set</a>. In physics, the manifold \(M\) is considered as (phase) space and the differential operator \(\frac{\partial}{\partial t} = T_{α_0}\) is usually considered as <a href="https://en.wikipedia.org/wiki/Time_derivative" target="_">time derivative</a> operator, as shown in <a href="https://youtu.be/O85OWBJ2ayo" target="_">this video clip</a>. However in general, the differential operator can be with respect to any spatial coordinate or any other scalar variable.  Note that <a href="https://en.wikipedia.org/wiki/Exponential_map_(discrete_dynamical_systems)" target="_">exponential map in dynamical systems</a> is just a mapping from complex plane to itself, which is somehow relevant but different from the exponential map here.
@@ -110,17 +109,17 @@ Here, instead of acting on individual objects in the manifold, the operators \( 
 Here we derive the identities of exponential directly from the limit definition <a href="#Def.1">Def.1</a> and the expression of composition of operators above.
 </p>
 <ul>
-<li>\( \e^{0} = 1 \): When \(α=0\), there is no displacement, thus \(\e^{0} = X_0\) is an <a href="https://en.wikipedia.org/wiki/Identity_function" target="_">identity operator</a> \(X_0(o) = o\). 
+<li>\( \e^{0} = 1 \): When \(α=0\), there is no displacement, thus \(\e^{0} = X_0\) is an <a href="https://en.wikipedia.org/wiki/Identity_function" target="_">identity operator</a> \(X_0(o) = o\).
 </li>
 <li>\( \e^{α+β} = \e^β\cdot \e^α \): The displacement of a sum \(α+β\) is the composition of component displacements \( \e^{α+β} = X_{α+β} = X_{β}\circ X_{α} = \e^{β}\cdot \e^{α} \), just like the parallelogram rule of vector addition (but may not be commutative).<br/>
 <a href="https://www.geogebra.org/m/yvv8fvqg" title="View in 3D applet" target="_"><img src="img/ExponentialMap-tangent-displacement-addition.PNG" width=300></a>
 </li>
 <li>\( \e^{αs} = (\e^α)^s \): The displacement of a parameter \(α\) scaled by a real number \(s\) is \(X_α\) raised to the power of \(s\) in the sense of "\(s\) times" (more/less) infinitesimal displacements.
-\[ \e^{αs} = \lim_{n\to\infty}\left(1+\frac{αs}{n}\right)^n = \lim_{n\to\infty}\left(1+\frac{α}{n/s}\right)^{(n/s)s} = \left(\lim_{n'\to\infty}\left(1+\frac{α}{n'}\right)^{n'}\right)^s 
+\[ \e^{αs} = \lim_{n\to\infty}\left(1+\frac{αs}{n}\right)^n = \lim_{n\to\infty}\left(1+\frac{α}{n/s}\right)^{(n/s)s} = \left(\lim_{n'\to\infty}\left(1+\frac{α}{n'}\right)^{n'}\right)^s
 = (\e^{α})^s \]
 </li>
-<li>\( \d(\e^{α}) = \e^α\cdot \dα \): We deduce this from the limit definition, which is the converse of the induction in <a href="#Id.Flow">Id.Flow</a>. From \(α = α_0 t\) and <a href="#Def.1">Def.1</a>, we have  
-\[ \frac{\d(\e^{α})}{\d t} = \lim_{n\to\infty}\frac{\d}{\d t}\left(1+\frac{α_0 t}{n}\right)^n 
+<li>\( \d(\e^{α}) = \e^α\cdot \dα \): We deduce this from the limit definition, which is the converse of the induction in <a href="#Id.Flow">Id.Flow</a>. From \(α = α_0 t\) and <a href="#Def.1">Def.1</a>, we have
+\[ \frac{\d(\e^{α})}{\d t} = \lim_{n\to\infty}\frac{\d}{\d t}\left(1+\frac{α_0 t}{n}\right)^n
 = \lim_{n\to\infty}\left(\left(1+\frac{α}{n}\right)^{n-1}\cdot n\frac{α_0}{n}\right) \]
 \[= α_0 \lim_{n\to\infty}\left(1+\frac{α}{n}\right)^{n\frac{n-1}{n}}
 = α_0 \e^α \]
@@ -130,23 +129,23 @@ Here we derive the identities of exponential directly from the limit definition 
 <h3>Taylor series</h3>
 <p>
 We can also <a href="https://en.wikipedia.org/wiki/Binomial_theorem" target="_">expand the binomial</a> in <a href="#Def.1">Def.1</a> to retrieve its Taylor series <br/>
-\[ \exp(α) = \lim_{n\to\infty}{\left(1+\frac{α}{n}\right)^n}  
+\[ \exp(α) = \lim_{n\to\infty}{\left(1+\frac{α}{n}\right)^n}
 = \lim_{n\to\infty} {\sum _{k=0}^{n}{\binom{n}{k} \left(\frac{α}{n}\right)^k}}  \]
 <span class="PlaceholderCollapsible"><span class="CollapsiblePlaceholder">&nbsp;...&nbsp;</span>
 <span class="CollapsibleContent">
-\[ = \lim_{n\to\infty} {\sum _{k=0}^{n} {\frac{\prod_{j=0}^{k-1}{(n-j)}}{k!} \frac{α^k}{n^k}} } 
+\[ = \lim_{n\to\infty} {\sum _{k=0}^{n} {\frac{\prod_{j=0}^{k-1}{(n-j)}}{k!} \frac{α^k}{n^k}} }
  = \lim_{n\to\infty} {\sum _{k=0}^{n} {\left( \frac{α^k}{k!} \cdot \prod_{j=0}^{k-1}{\frac{n-j}{n}} \right)} } \]
  </span></span>
 \[ = \lim_{n\to\infty} {\sum _{k=0}^{n}{\frac{α^{k}}{k!}}} = \sum _{k=0}^{\infty }{\frac{α^{k}}{k!}}=1+α+{\frac {α^{2}}{2}}+{\frac {α^{3}}{6}}+{\frac {α^{4}}{24}}+\cdots  \]
 </p>
- 
+
 
 <script>
     linkPlaceholderCollapsibles();
 
     var params = {"id":"ggb_TangentAndMicrodisplacement","material_id":"tham8zkb", "width": 600, "height": 350, "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false };
     var ggb_TangentAndMicrodisplacement = new GGBApplet(params, true);
-    window.addEventListener("load", function() { 
+    window.addEventListener("load", function() {
         ggb_TangentAndMicrodisplacement.inject('ggb_TangentAndMicrodisplacement');
     });
 </script>
